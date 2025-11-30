@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Kapebara Clone</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="shopee-header py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="brand-text">
+                <span class="fs-4 fw-bold me-1 position-relative">
+                    Kapebara
+                    <i class="fa-solid fa-leaf position-absolute" style="top: -8px; left: 65px; font-size: 14px; color: var(--kapebara-green);"></i>
+                </span>
+                <div class="brand-divider"></div>
+                <span style="color: var(--kapebara-accent);">Checkout</span>
+            </div>
+            </div>
+    </header>
+
+    <div class="container mt-4 mb-5">
+        
+        <div class="card position-relative overflow-hidden">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-location-dot me-2" style="color: var(--kapebara-accent);"></i>
+                        <h5 class="m-0" style="color: var(--kapebara-accent);">Delivery Address</h5>
+                    </div>
+                    <button class="btn btn-sm btn-link text-decoration-none text-uppercase fw-bold" style="font-size: 13px;">Change</button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3 fw-bold">
+                        Jhuzzmien Calimlim (+63) 936 944 7388
+                    </div>
+                    <div class="col-md-9">
+                        <span class="text-muted">Commonwealth, Quezon City</span>
+                        <span class="address-tag">Default</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-white border-bottom-0 pt-4 pb-0 d-none d-md-block">
+                <div class="row text-muted text-center" style="font-size: 14px;">
+                    <div class="col-6 text-start">Products Ordered</div>
+                    <div class="col-2">Unit Price</div>
+                    <div class="col-2">Amount</div>
+                    <div class="col-2 text-end">Item Subtotal</div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="fw-bold mb-3 border-bottom pb-2">
+                    <i class="fa-solid fa-mug-hot coffee-cup-icon"></i> Kapebara
+                </div>
+
+                <div class="row align-items-center mb-4 product-item" data-price="500">
+                    <div class="col-md-6 d-flex align-items-start">
+                        <img src="https://img.freepik.com/premium-photo/glass-with-strawberry-chocolate-cream-it_854727-122758.jpg" alt="Wireless Headphones" class="product-img me-3" onerror="this.onerror=null;this.src='https://placehold.co/60x60/EE4D2D/FFFFFF?text=Product+1'">
+                        <div>
+                            <div class="text-truncate mb-1" style="max-width: 250px;"> White Chocolate Cream and Oreo </div>
+                            <small class="text-muted d-block">Variation: White Fudge Covered Oreos</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2 text-center d-none d-md-block unit-price">
+                        ₱500
+                    </div>
+                    
+                    <div class="col-md-2 d-flex justify-content-center">
+                        <div class="d-flex align-items-center mobile-qty-row w-100">
+                            <span class="d-md-none small me-auto text-muted">Price: ₱500</span>
+                            <div class="d-flex">
+                                <button class="qty-btn rounded-start-1" onclick="updateQty(this, -1)">-</button>
+                                <input type="text" value="1" class="qty-input" readonly>
+                                <button class="qty-btn rounded-end-1" onclick="updateQty(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-end fw-bold d-none d-md-block subtotal">
+                        ₱500
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-2 product-item" data-price="250">
+                    <div class="col-md-6 d-flex align-items-start">
+                        <img src="https://static.vecteezy.com/system/resources/previews/047/407/714/large_2x/chocolate-milk-shake-isolated-on-a-white-background-free-photo.jpg" alt="Protective Case" class="product-img me-3" onerror="this.onerror=null;this.src='https://placehold.co/60x60/EE4D2D/FFFFFF?text=Product+2'">
+                        <div>
+                            <div class="text-truncate mb-1" style="max-width: 250px;">Strawberry Milk Shake</div>
+                            <small class="text-muted d-block">Variation: Malted Strawberry Shake</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2 text-center d-none d-md-block unit-price">
+                        ₱250
+                    </div>
+                    
+                    <div class="col-md-2 d-flex justify-content-center">
+                        <div class="d-flex align-items-center mobile-qty-row w-100">
+                            <span class="d-md-none small me-auto text-muted">Price: ₱250</span>
+                            <div class="d-flex">
+                                <button class="qty-btn rounded-start-1" onclick="updateQty(this, -1)">-</button>
+                                <input type="text" value="2" class="qty-input" readonly>
+                                <button class="qty-btn rounded-end-1" onclick="updateQty(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-end fw-bold d-none d-md-block subtotal">
+                        ₱500
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer bg-white border-top-1 border-light">
+                <div class="row py-3 align-items-center" style="border-top: 1px dashed #eee; border-bottom: 1px dashed #eee;">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <div class="d-flex align-items-center">
+                            <label class="me-3 small text-muted">Message:</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="(Optional) Leave a message to seller...">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <span class="small text-success me-3">Standard Local Delivery</span>
+                        <span class="small text-muted me-2">Receive by 25 Nov - 27 Nov</span>
+                        <span class="fw-bold">₱38</span>
+                    </div>
+                </div>
+                
+                <div class="row py-3">
+                    <div class="col-12 text-end">
+                        <span class="text-muted me-2">Order Total (<span id="total-items">3</span> items):</span> <span class="fw-bold fs-5" style="color: var(--kapebara-accent);">₱1,038</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-white border-0 pt-4 pb-2">
+                <h5 class="fw-bold m-0" style="font-size: 1.25rem;">Vouchers and Discount</h5>
+            </div>
+            
+            <div class="card-body py-3 pt-0">
+                <div class="mb-0"> 
+                    <div class="voucher-input-group mt-2">
+                        <input type="text" placeholder="Enter Voucher or Discount Code">
+                    </div>
+                    <a href="#" class="text-decoration-none small mt-2 d-block" style="color: #05a;">View available vouchers and discount</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-white border-0 pt-4 pb-2">
+                <h5 class="fw-bold m-0" style="font-size: 1.25rem;">Payment Details</h5>
+            </div>
+            
+            <div class="card-body d-flex justify-content-between align-items-center py-3">
+                <span class="m-0" style="font-size: 1rem;">Payment Method</span>
+                
+                <button class="btn btn-sm btn-link text-decoration-none p-0 d-flex align-items-center" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#paymentModal"
+                        id="payment-summary-button">
+                    <span id="payment-display-text" class="payment-unselected-text"></span>
+                    <i class="fa-solid fa-chevron-right ms-2" style="font-size: 0.7rem; color: var(--text-gray);"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card rounded-0 checkout-footer mobile-sticky-bottom">
+        <div class="card-body p-0">
+            <div class="container">
+                <div class="row align-items-center g-0">
+                    
+                    <div class="col-md-6 d-none d-md-block"></div>
+                    
+                    <div class="col-md-6 col-12">
+                        <div class="row align-items-stretch g-0"> 
+                            
+                            <div class="col-8 p-3 text-end">
+                                <div class="d-flex justify-content-between mb-1 small text-muted">
+                                    <span>Merchandise Subtotal:</span>
+                                    <span id="merchandise-subtotal">₱1,000</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1 small text-muted">
+                                    <span>Shipping Total:</span>
+                                    <span>₱38</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1 small text-muted">
+                                    <span>Total Payment:</span>
+                                    <span class="total-amount" id="final-total">₱1,038</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-4">
+                                <button class="btn btn-shopee w-100 h-100 rounded-0" onclick="placeOrder()">Place<br>Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold fs-4" id="paymentModalLabel">Select payment method</h5>
+                    <button type="button" class="btn-close fs-5" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <div class="list-group list-group-flush">
+                        
+                        <label class="list-group-item payment-modal-option d-flex justify-content-between align-items-center ps-0 pe-1">
+                            <div class="d-flex align-items-center">
+                                <div class="payment-icon-container">
+                                    <span class="kapebara-icon fw-bold">
+                                        Kapebara
+                                        <i class="fa-solid fa-leaf position-absolute"></i>
+                                    </span>
+                                </div>
+                                <div class="payment-label-text">My Kapebara Wallet</div>
+                            </div>
+                            
+                            <input class="form-check-input" type="radio" name="paymentMethod" value="Kapebara Wallet">
+                        </label>
+
+                        <label class="list-group-item payment-modal-option d-flex justify-content-between align-items-center ps-0 pe-1">
+                            <div class="d-flex align-items-center">
+                                <div class="payment-icon-container credit-card-icons">
+                                    <img src="https://down-ph.img.susercontent.com/file/sg-11134201-22120-1y82q856q9x2b3_tn" alt="VISA Logo" onerror="this.onerror=null;this.src='https://placehold.co/40x20/003366/FFFFFF?text=VISA'">
+                                    <img src="https://down-ph.img.susercontent.com/file/sg-11134201-22120-h182q856q9x2c8_tn" alt="Mastercard Logo" onerror="this.onerror=null;this.src='https://placehold.co/40x20/CC0000/FFFFFF?text=MC'">
+                                </div>
+                                <div class="payment-label-text">Credit/Debit Card</div>
+                            </div>
+                            <input class="form-check-input" type="radio" name="paymentMethod" value="Credit/Debit Card">
+                        </label>
+
+                        <label class="list-group-item payment-modal-option d-flex justify-content-between align-items-center ps-0 pe-1">
+                            <div class="d-flex align-items-center">
+                                <div class="payment-icon-container e-wallet-icons">
+                                    <img src="https://placehold.co/40x20/0073e6/ffffff?text=GCash" alt="GCash Logo" onerror="this.onerror=null;this.src='https://placehold.co/40x20/0073e6/ffffff?text=GCash'">
+                                    <img src="https://placehold.co/40x20/00b5e3/ffffff?text=Maya" alt="Maya Logo" onerror="this.onerror=null;this.src='https://placehold.co/40x20/00b5e3/ffffff?text=Maya'">
+                                </div>
+                                <div class="payment-label-text">E-wallet</div>
+                            </div>
+                            <input class="form-check-input" type="radio" name="paymentMethod" value="E-wallet">
+                        </label>
+
+                        <label class="list-group-item payment-modal-option d-flex justify-content-between align-items-center ps-0 pe-1">
+                            <div class="d-flex align-items-center">
+                                <div class="payment-icon-container">
+                                    <i class="fa-solid fa-money-bill-transfer fs-4 card-icon"></i>
+                                </div>
+                                <div class="payment-label-text">Cash on Delivery</div>
+                            </div>
+                            <input class="form-check-input" type="radio" name="paymentMethod" value="Cash on Delivery">
+                        </label>
+
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0 justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-5 py-2" style="border-color: #ccc;" onclick="confirmPaymentMethod()" data-bs-dismiss="modal">
+                        Confirm Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-labelledby="orderConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-2 shadow-lg">
+                <div class="modal-header bg-white border-0 py-4 justify-content-center">
+                    <h5 class="modal-title fs-4 fw-bold text-success" id="orderConfirmationModalLabel">
+                        <i class="fa-solid fa-circle-check me-2"></i> Order Placed!
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-0">
+                    <p class="fs-6 text-center text-muted">Thank you for shopping with us!</p>
+                    <div class="p-3 border rounded-3 bg-light mt-3">
+                        <p class="mb-2 small text-muted">
+                            <i class="fa-solid fa-peso-sign me-1" style="color: var(--kapebara-accent);"></i> Total Amount: 
+                            <span id="modal-total" class="fw-bold float-end text-dark"></span>
+                        </p>
+                        <p class="mb-0 small text-muted">
+                            <i class="fa-solid fa-credit-card me-1" style="color: var(--kapebara-accent);"></i> Payment Method: 
+                            <span id="modal-payment" class="fw-bold float-end text-dark"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center border-0 pb-4">
+                    <button type="button" class="btn btn-shopee px-5" data-bs-dismiss="modal">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>
