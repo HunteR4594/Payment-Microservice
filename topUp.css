@@ -1,0 +1,58 @@
+/* CSS: PandaPay Top-up Clone */
+
+body {
+    background: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+/* Centered Box */
+.box {
+    max-width: 420px; 
+    margin: 50px auto; 
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Section cards */
+.section {
+    padding: 15px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.balance {
+    margin: 5px 0 15px;
+    color: #666;
+}
+
+.d-flex button {
+    cursor: pointer;
+}
+
+/* Payment method */
+.form-check-label {
+    cursor: pointer;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .box {
+        width: 95%;
+        margin: 20px auto;
+    }
+}

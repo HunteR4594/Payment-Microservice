@@ -13,15 +13,17 @@ body {
 ion-icon {
     font-size: 24px;
     color: #2d3436;
+    vertical-align: middle;
 }
 
-/* LEFT COLUMN */
+/* LEFT COLUMN: Wallet Card */
 .balance-card {
     background: white;
     border-radius: 12px;
     padding: 24px;
     border: 1px solid #e0e0e0;
     margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .balance-header {
@@ -55,46 +57,70 @@ ion-icon {
     letter-spacing: -1px;
 }
 
+/* LEFT COLUMN: Top-up button card */
 .top-up-btn {
-    width: fit-content;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     background: #362222;
     border-radius: 30px;
-    padding: 10px 14px;
-    border: none;
-    display: inline-flex;
-    align-items: center;
+    padding: 14px 0;
     gap: 8px;
-    margin-bottom: 20px;
     text-decoration: none;
     color: white;
     font-weight: 500;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: 0.2s;
 }
 
-
 .top-up-btn:hover {
-    background-color: #5C3D2E; 
+    background-color: #5C3D2E;
 }
 
 .top-up-btn ion-icon {
-    font-size: 18px;
-    color: white; 
+    font-size: 20px;
+    color: white;
 }
 
-/* Activities Section */
+/* RIGHT COLUMN: Activities Section */
 .activities-section {
     background: white;
     padding: 24px;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
     min-height: 420px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+.section-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.view-all-link {
+    text-decoration: none;
+    color: #1976D2;
+    font-weight: 500;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Activity Item */
 .activity-item {
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 16px 0;
     border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
 }
 
 .activity-icon {
@@ -112,21 +138,40 @@ ion-icon {
     color: #2d3436;
 }
 
-.section-title {
+.activity-info {
+    flex-grow: 1;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.activity-type {
     font-weight: 600;
-    font-size: 16px;
 }
 
-.change-link,
-.view-all-link,
-.back-link {
-    text-decoration: none;
-    color: #1976D2;
-    font-weight: 500;
+.activity-date {
+    font-size: 14px;
+    color: #636e72;
 }
 
-.change-link:hover,
-.view-all-link:hover,
-.back-link:hover {
-    text-decoration: underline;
+.activity-details {
+    font-size: 14px;
+    color: #636e72;
+}
+
+.activity-right {
+    text-align: right;
+}
+
+.activity-amount {
+    font-weight: 600;
+    display: block;
+}
+
+.arrow ion-icon {
+    font-size: 18px;
+    color: #2d3436;
 }
