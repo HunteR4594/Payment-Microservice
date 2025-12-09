@@ -1,3 +1,4 @@
+/* General */
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +17,36 @@ ion-icon {
     vertical-align: middle;
 }
 
+.page-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px; /* more space */
+    background: white;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    margin-bottom: 24px;
+    position: sticky; 
+    top: 0;
+    z-index: 10;
+}
+
+.back-arrow {
+    font-size: 28px;
+    color: #2d3436;
+    text-decoration: none;
+    margin-right: 12px;
+}
+
+.back-arrow:hover {
+    color: #636e72;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3436;
+}
+
 /* LEFT COLUMN: Wallet Card */
 .balance-card {
     background: white;
@@ -24,24 +55,19 @@ ion-icon {
     border: 1px solid #e0e0e0;
     margin-bottom: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
 }
 
 .balance-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .logo-text {
     font-size: 28px;
     font-weight: 600;
     color: #2d3436;
-}
-
-.settings-icon ion-icon {
-    font-size: 26px;
-    cursor: pointer;
 }
 
 .balance-label {
@@ -55,9 +81,26 @@ ion-icon {
     font-weight: 700;
     color: #2d3436;
     letter-spacing: -1px;
+    margin-bottom: 12px;
 }
 
-/* LEFT COLUMN: Top-up button card */
+.wallet-coins {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.view-history {
+    font-size: 14px;
+    color: #1976D2;
+    text-decoration: none;
+}
+
+.view-history:hover {
+    text-decoration: underline;
+}
+
+/* Top-up Button */
 .top-up-btn {
     display: flex;
     align-items: center;
@@ -80,7 +123,7 @@ ion-icon {
     background-color: #5C3D2E;
 }
 
-.top-up-btn ion-icon {
+.wallet-icon ion-icon {
     font-size: 20px;
     color: white;
 }
@@ -117,10 +160,15 @@ ion-icon {
     gap: 16px;
     padding: 16px 0;
     border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
 }
 
 .activity-item:last-child {
     border-bottom: none;
+}
+
+.activity-item:hover {
+    background: #f9f9f9;
 }
 
 .activity-icon {
@@ -163,7 +211,17 @@ ion-icon {
 }
 
 .activity-right {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-end; 
+    gap: 6px; 
     text-align: right;
+}
+
+.arrow ion-icon {
+    font-size: 18px;
+    color: #2d3436;
 }
 
 .activity-amount {
@@ -171,7 +229,16 @@ ion-icon {
     display: block;
 }
 
+.activity-amount.positive {
+    color: green;
+}
+
+.activity-amount.negative {
+    color: red;
+}
+
 .arrow ion-icon {
     font-size: 18px;
     color: #2d3436;
+    margin-left: 6px;
 }

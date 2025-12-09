@@ -1,58 +1,104 @@
-/* CSS: PandaPay Top-up Clone */
-
-body {
-    background: #f7f7f7;
-    font-family: Arial, sans-serif;
-}
-
-/* Centered Box */
+/* --- Container --- */
 .box {
-    max-width: 420px; 
-    margin: 50px auto; 
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
-/* Section cards */
+/* --- Cards --- */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Sections --- */
 .section {
-    padding: 15px;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 15px;
-    border-radius: 8px;
+  margin-bottom: 1.5rem;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+/* --- Headings --- */
+.section h5 {
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
+/* --- Brand --- */
+.brand-text {
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- Balance --- */
 .balance {
-    margin: 5px 0 15px;
-    color: #666;
+  font-size: 0.875rem;
+  color: #888;
 }
 
-.d-flex button {
-    cursor: pointer;
+/* --- Buttons --- */
+.btn {
+  border-radius: 8px;
 }
 
-/* Payment method */
-.form-check-label {
-    cursor: pointer;
+.btn-outline-secondary {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 600;
 }
 
 .btn-primary:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
-    .box {
-        width: 95%;
-        margin: 20px auto;
-    }
+/* --- Payment Options --- */
+.form-check-label {
+  cursor: pointer;
+}
+
+.form-check-input {
+  margin-right: 0.5rem;
+}
+
+/* --- Inputs --- */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* --- Radio Options --- */
+.form-check-label.d-flex {
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* --- Top-Up Page Back Button --- */
+.box .btn.mb-3 {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* --- Section Gap --- */
+.section + .section {
+  margin-top: 1rem;
+}
+
+/* --- Optional Responsive --- */
+@media (max-width: 576px) {
+  .box {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
 }
