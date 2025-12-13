@@ -1,4 +1,4 @@
-import RefundButton from "./refund/RefundButton";
+import RefundButton from "./RefundButton";
 
 function AppRefund() {
   return <RefundButton />;
