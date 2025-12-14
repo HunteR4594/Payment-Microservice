@@ -1,0 +1,28 @@
+.app-container {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.order-card-custom {
+    border-radius: 1rem;
+    max-width: 450px;
+}
+
+.order-card-custom .material-icons {
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+.back-icon a {
+    font-size: 2rem;
+}
+
+.order-card-custom .card-body h1 {
+    font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+    .order-card-custom .card-body {
+        padding: 1.5rem !important;
+    }
+}
