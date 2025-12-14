@@ -1,0 +1,133 @@
+// Function to format currency (with ₱ and commas)
+function formatCurrency(amount) {
+    // Ensure amount is a number before formatting
+    const numericAmount = parseFloat(amount);
+    if (isNaN(numericAmount)) return '₱0';
+    
+    // Use toLocaleString for proper comma separation
+    return '₱' + numericAmount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+// Function to update the payment method summary text
+function updatePaymentDisplayText(method) {
+    const displayText = document.getElementById('payment-display-text');
+    const defaultPlaceholder = 'Choose your payment method'; 
+    
+    if (method) {
+        displayText.textContent = method;
+        displayText.classList.remove('payment-unselected-text');
+        displayText.classList.add('payment-selected-text');
+    } else {
+        displayText.textContent = defaultPlaceholder;
+        displayText.classList.remove('payment-selected-text');
+        displayText.classList.add('payment-unselected-text');
+    }
+}
+
+// Function called when 'Confirm Payment' is clicked in the modal
+function confirmPaymentMethod() {
+    const selectedRadio = document.querySelector('input[name="paymentMethod"]:checked');
+    if (selectedRadio) {
+        updatePaymentDisplayText(selectedRadio.value);
+    }
+}
+
+// ** CORE FUNCTION: CALCULATE AND UPDATE ALL TOTALS **
+function calculateTotal() {
+    let merchandiseSubtotal = 0;
+    let totalItems = 0;
+    const shippingFee = 38; // Hardcoded shipping fee (₱38)
+
+    // 1. Loop through all product items to calculate merchandise subtotal
+    document.querySelectorAll('.product-item').forEach(item => {
+        // Get base price from data attribute
+        const price = parseInt(item.getAttribute('data-price'));
+        // Get quantity from the input field
+        const qtyInput = item.querySelector('.qty-input');
+        const quantity = parseInt(qtyInput.value);
+        
+        const subtotalElement = item.querySelector('.subtotal');
+        
+        const subtotal = price * quantity;
+        
+        // Update individual item subtotal display
+        if (subtotalElement) {
+            subtotalElement.textContent = formatCurrency(subtotal);
+        }
+
+        // Add to running totals
+        merchandiseSubtotal += subtotal;
+        totalItems += quantity;
+    });
+
+    // 2. Calculate the Final Total
+    const finalTotal = merchandiseSubtotal + shippingFee;
+
+    // 3. Update all total displays on the page
+    
+    // Update main totals in the Product Card Footer
+    document.getElementById('total-items').textContent = totalItems;
+    document.querySelector('.card-footer .fw-bold.fs-5').textContent = formatCurrency(finalTotal);
+
+    // Update totals in the Fixed Checkout Footer
+    document.getElementById('merchandise-subtotal').textContent = formatCurrency(merchandiseSubtotal);
+    document.getElementById('final-total').textContent = formatCurrency(finalTotal);
+}
+
+// ** FUNCTION FOR QUANTITY BUTTONS **
+function updateQty(button, change) {
+    const itemRow = button.closest('.product-item');
+    const qtyInput = itemRow.querySelector('.qty-input');
+    let currentQty = parseInt(qtyInput.value);
+
+    // Calculate new quantity
+    let newQty = currentQty + change;
+    
+    // Ensure quantity is not less than 1
+    if (newQty < 1 || isNaN(newQty)) {
+        newQty = 1;
+    }
+
+    // Update the input value and trigger total recalculation
+    qtyInput.value = newQty;
+    calculateTotal();
+}
+
+// Function for Place Order button
+function placeOrder() {
+    const finalTotal = document.getElementById('final-total').textContent;
+    const paymentDisplayText = document.getElementById('payment-display-text');
+    const paymentMethod = paymentDisplayText.textContent;
+
+    if (paymentDisplayText.classList.contains('payment-unselected-text')) {
+        alert('Please select a payment method first before placing your order.');
+        // Optionally open the modal automatically
+        const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+        paymentModal.show();
+        return;
+    }
+
+    // Update confirmation modal content
+    document.getElementById('modal-total').textContent = finalTotal;
+    document.getElementById('modal-payment').textContent = paymentMethod;
+
+    // Show the confirmation modal
+    const orderConfirmationModal = new bootstrap.Modal(document.getElementById('orderConfirmationModal'));
+    orderConfirmationModal.show();
+}
+
+
+// Event Listeners on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Set initial payment text on load
+    const initialPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+    updatePaymentDisplayText(initialPaymentMethod);
+    
+    // 2. Initial calculation of total prices
+    calculateTotal();
+
+    // 3. Ensure payment summary is updated when modal is hidden 
+    const paymentModalElement = document.getElementById('paymentModal');
+    paymentModalElement.addEventListener('hidden.bs.modal', confirmPaymentMethod);
+
+});
